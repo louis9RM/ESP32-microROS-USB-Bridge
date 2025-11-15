@@ -36,10 +36,10 @@ Dentro de Ubuntu, verifica que reconoce puertos:
 ls /dev/tty*
 ```
 
-Ahora vuelve a PowerShell y lista los dispositivos USB:
+Ahora vuelve a PowerShell como administrador y lista los dispositivos USB:
 
 ```powershell
-usbipd list
+usbipd list 
 ```
 
 Identifica tu ESP32 (ejemplo `1-3`) y ejecútalo:
@@ -60,7 +60,7 @@ ls /dev/ttyUSB*
 
 ## 🐳 Paso 2 — ejecutar Docker con acceso al puerto USB
 
-En PowerShell:
+En PowerShell Se usa solo la primera vez, cuando quieres crear el contenedor desde cero. :
 
 ```powershell
 docker run -it --name ros2_dev --privileged --device=/dev/ttyUSB0 ros:humble-ros-base bash
@@ -68,7 +68,16 @@ docker run -it --name ros2_dev --privileged --device=/dev/ttyUSB0 ros:humble-ros
 
 Esto abre una terminal dentro del contenedor.
 
----
+En caso cuando solo deseas arrancar el contenedor  creado por el paso anterior debes ejecutar:
+
+```powershell
+docker start ros2_dev
+```
+Y para entrar al contenedor :
+
+```powershell
+docker exec -it ros2_dev bash
+```
 
 ## 🏗 Paso 3 — instalar micro-ROS Agent
 
