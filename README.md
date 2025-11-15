@@ -16,12 +16,15 @@ Este documento describe cómo conectar un **ESP32 con micro-ROS** a **ROS2 Humbl
 
 ---
 
-## 1️⃣ Verificar el puerto del ESP32 en Windows
+## 1️⃣ abrir Ubuntu 22.04
+
+Ejecuta esto en PowerShell:
 
 Ejecutar en PowerShell:
 
 ```powershell
-Get-PnpDevice -Class Ports
+wsl -d Ubuntu-22.04
+
 ```
 
 Debes ver algo como:
